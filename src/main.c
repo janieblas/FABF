@@ -1,28 +1,16 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "sdl_libs.h"
+#include "start_windows.h"
 
 int main() {
-    // Inicializar SDL2
-    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-        fprintf(stderr, "Error: Unable to initialize SDL2: %s\n", SDL_GetError());
-        return 1;
-    }
+    SDL_Window *window = NULL;
+    SDL_Renderer *renderer = NULL;
 
-    // Crear una ventana de tamaño fijo
-    SDL_Window *window = SDL_CreateWindow("SDL2 Fixed Size Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1280, 824, SDL_WINDOW_SHOWN);
-    if (window == NULL) {
-        fprintf(stderr, "Error: Unable to create window: %s\n", SDL_GetError());
-        SDL_Quit();
-        return 1;
-    }
-
-    // Crear un renderer para la ventana
-    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    if (renderer == NULL) {
-        fprintf(stderr, "Error: Unable to create renderer: %s\n", SDL_GetError());
-        SDL_DestroyWindow(window);
-        SDL_Quit();
+    //more information, check the function.
+    start_windows(&window, &renderer);
+    if (window == NULL || renderer == NULL) {
+        // Error message is already printed in start_windows, just return
         return 1;
     }
 

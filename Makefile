@@ -7,12 +7,14 @@ INC_DIR = include
 
 # Archivos de cabecera
 HEADERS = $(INC_DIR)/sdl_libs.h \
-          $(INC_DIR)/esc_menu.h
+          $(INC_DIR)/esc_menu.h \
+		  $(INC_DIR)/start_windows.h
 
 # Archivos fuente
 SRC_DIR = src
 SRC = $(SRC_DIR)/main.c \
-      $(SRC_DIR)/esc_menu.c
+      $(SRC_DIR)/esc_menu.c\
+	  $(SRC_DIR)/start_windows.c
 
 # Nombre del ejecutable
 EXE = build/main.exe
