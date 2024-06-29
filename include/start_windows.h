@@ -3,8 +3,8 @@
 //none
 
 #include <SDL2/SDL.h>
-
-void start_windows(SDL_Window **window, SDL_Renderer **renderer);
+#include <stdbool.h>
+bool init_SDL(SDL_Window **window, SDL_Renderer **renderer);
 
 
 #endif //START_WINDOWS_H
