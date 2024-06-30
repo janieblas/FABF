@@ -6,15 +6,19 @@ SDL_LIBS = -lSDL2 -lSDL2_ttf -lSDL2_image
 INC_DIR = include
 
 # Archivos de cabecera
-HEADERS = $(INC_DIR)/sdl_libs.h \
-		  $(INC_DIR)/start_windows.h 
-#          $(INC_DIR)/esc_menu.h 
+HEADERS = 	$(INC_DIR)/sdl_libs.h \
+			$(INC_DIR)/general_tools.h \
+			$(INC_DIR)/start_windows.h \
+			$(INC_DIR)/handle_scene.h \
+        	$(INC_DIR)/menu.h 
 
 # Archivos fuente
 SRC_DIR = src
 SRC = $(SRC_DIR)/main.c \
-	  $(SRC_DIR)/start_windows.c
-#      $(SRC_DIR)/esc_menu.c
+	  $(SRC_DIR)/general_tools.c \
+	  $(SRC_DIR)/start_windows.c \
+	  $(SRC_DIR)/handle_scene.c \
+      $(SRC_DIR)/menu.c
 
 # Nombre del ejecutable
 EXE = build/main.exe
