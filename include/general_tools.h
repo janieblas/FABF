@@ -3,13 +3,14 @@
 
 #include <SDL2/SDL.h>
 
+//! pasar este a menu y crear otro para el juego y settings
 typedef enum {
     STATE_MENU,
-    STATE_SCENE_A,
-    STATE_SCENE_B,
-    STATE_SCENE_C,
+    STATE_PLAY,
+    STATE_SETTINGS,
     STATE_EXIT
-} GameState;
+} GameStateMenu;
+
 
 typedef enum {
     COLOR_YELLOW,

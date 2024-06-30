@@ -2,7 +2,7 @@
 #include "handle_scene.h"
 
 // Maneja la visualización y la lógica de cada escena
-void handleScene(SDL_Renderer *renderer, GameState *state, ColorType colorType) {
+void handleScene(SDL_Renderer *renderer, GameStateMenu *state, ColorType colorType) {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         if (event.type == SDL_QUIT) {

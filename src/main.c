@@ -9,7 +9,7 @@ int main() {
         return 1;
     }
 
-    GameState state = STATE_MENU;
+    GameStateMenu state = STATE_MENU;
     bool running = true;
 
     while (running) {
@@ -17,14 +17,11 @@ int main() {
             case STATE_MENU:
                 handleMenu(renderer, &state);
                 break;
-            case STATE_SCENE_A:
+            case STATE_PLAY:
                 handleScene(renderer, &state, COLOR_RED);
                 break;
-            case STATE_SCENE_B:
+            case STATE_SETTINGS:
                 handleScene(renderer, &state, COLOR_GREEN);
-                break;
-            case STATE_SCENE_C:
-                handleScene(renderer, &state, COLOR_BLUE);
                 break;
             case STATE_EXIT:
                 running = false;

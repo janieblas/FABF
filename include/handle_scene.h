@@ -4,6 +4,6 @@
 #include <SDL2/SDL.h>
 #include "general_tools.h"
 
-void handleScene(SDL_Renderer *renderer, GameState *state, ColorType colorType);
+void handleScene(SDL_Renderer *renderer, GameStateMenu *state, ColorType colorType);
 
 #endif //HANDLE_SCENE_H

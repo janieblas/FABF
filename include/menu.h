@@ -11,9 +11,9 @@
 typedef struct {
     SDL_Rect rect;
     SDL_Color color;
-    GameState nextState;
+    GameStateMenu nextState;
 } Button;
 
-void handleMenu(SDL_Renderer *renderer, GameState *state);
+void handleMenu(SDL_Renderer *renderer, GameStateMenu *state);
 
 #endif //MENU_H

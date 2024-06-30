@@ -1,12 +1,12 @@
 #include "menu.h"
 
 // Maneja el estado del menú, dibujando el menú y gestionando la entrada del usuario
-void handleMenu(SDL_Renderer *renderer, GameState *state) {
+void handleMenu(SDL_Renderer *renderer, GameStateMenu *state) {
     // Definir los botones
     Button buttons[] = {
-        {{WINDOW_WIDTH_MAIN / 2 - 50, WINDOW_HEIGHT_MAIN / 2 - 60, 100, 40}, getColor(COLOR_CYAN), STATE_SCENE_A},
-        {{WINDOW_WIDTH_MAIN / 2 - 50, WINDOW_HEIGHT_MAIN / 2 - 10, 100, 40}, getColor(COLOR_CYAN), STATE_SCENE_B},
-        {{WINDOW_WIDTH_MAIN / 2 - 50, WINDOW_HEIGHT_MAIN / 2 + 40, 100, 40}, getColor(COLOR_CYAN), STATE_SCENE_C},
+        {{WINDOW_WIDTH_MAIN / 2 - 50, WINDOW_HEIGHT_MAIN / 2 - 60, 100, 40}, getColor(COLOR_CYAN), STATE_PLAY},
+        {{WINDOW_WIDTH_MAIN / 2 - 50, WINDOW_HEIGHT_MAIN / 2 - 10, 100, 40}, getColor(COLOR_CYAN), STATE_SETTINGS},
+        {{WINDOW_WIDTH_MAIN / 2 - 50, WINDOW_HEIGHT_MAIN / 2 + 40, 100, 40}, getColor(COLOR_CYAN), STATE_EXIT},
     };
 
     SDL_Event event;
