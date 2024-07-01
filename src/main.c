@@ -8,6 +8,12 @@ int main() {
     if (!init_SDL(&window, &renderer)) {
         return 1;
     }
+    
+    if (TTF_Init() == -1) {
+        printf("Error initializing SDL_ttf: %s\n", TTF_GetError());
+        SDL_Quit();
+        return 1;
+    }
 
     GameStateMenu state = STATE_MENU;
     bool running = true;
