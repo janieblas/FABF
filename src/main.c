@@ -8,6 +8,11 @@ int main() {
     if (!init_SDL(&window, &renderer)) {
         return 1;
     }
+
+    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+        printf("SDL_Init Error: %s\n", SDL_GetError());
+        return 1;
+    }
     
     if (TTF_Init() == -1) {
         printf("Error initializing SDL_ttf: %s\n", TTF_GetError());
@@ -40,6 +45,8 @@ int main() {
 
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+    IMG_Quit();
+    TTF_Quit();
     SDL_Quit();
 
     return 0;

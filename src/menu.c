@@ -1,4 +1,15 @@
+#include <SDL2/SDL_image.h>
+
 #include "menu.h"
+
+SDL_Texture* loadTexture(const char* filePath, SDL_Renderer* renderer) {
+    SDL_Texture* texture = IMG_LoadTexture(renderer, filePath);
+    if (texture == NULL) {
+        printf("Error loading texture: %s\n", IMG_GetError());
+    }
+    return texture;
+}
+
 
 // Maneja el estado del menú, dibujando el menú y gestionando la entrada del usuario
 void handleMenu(SDL_Renderer *renderer, GameStateMenu *state) {
@@ -12,6 +23,9 @@ void handleMenu(SDL_Renderer *renderer, GameStateMenu *state) {
 
     char fontPath[512];
     snprintf(fontPath, sizeof(fontPath), "%s%s", basePath, "../fonts/OpenSans-Bold.ttf");
+
+    char backgroundPath[512];
+    snprintf(backgroundPath, sizeof(backgroundPath), "%s%s", basePath, "../img/hillandale.png");
     SDL_free(basePath);
 
     // Cargar la fuente
@@ -19,6 +33,15 @@ void handleMenu(SDL_Renderer *renderer, GameStateMenu *state) {
     if (font == NULL) {
         printf("Error loading font: %s\n", TTF_GetError());
         *state = STATE_EXIT;
+        return;
+    }
+
+    // Cargar la imagen de fondo
+    SDL_Texture *backgroundTexture = loadTexture(backgroundPath, renderer);
+    if (backgroundTexture == NULL) {
+        printf("Error loading texture: %s\n", IMG_GetError());
+        *state = STATE_EXIT;
+        TTF_CloseFont(font);
         return;
     }
 
@@ -34,6 +57,7 @@ void handleMenu(SDL_Renderer *renderer, GameStateMenu *state) {
         if (event.type == SDL_QUIT) {
             *state = STATE_EXIT;  // Cambia el estado para salir del programa
             TTF_CloseFont(font);
+            SDL_DestroyTexture(backgroundTexture);
             return;
         } else if (event.type == SDL_MOUSEBUTTONDOWN) {
             int x, y;
@@ -43,6 +67,7 @@ void handleMenu(SDL_Renderer *renderer, GameStateMenu *state) {
                     y >= buttons[i].rect.y && y <= (buttons[i].rect.y + buttons[i].rect.h)) {
                     *state = buttons[i].nextState;  // Cambia al estado de la escena correspondiente
                     TTF_CloseFont(font);
+                    SDL_DestroyTexture(backgroundTexture);
                     return;
                 }
             }
@@ -53,6 +78,9 @@ void handleMenu(SDL_Renderer *renderer, GameStateMenu *state) {
     SDL_Color menuColor = getColor(COLOR_YELLOW);
     SDL_SetRenderDrawColor(renderer, menuColor.r, menuColor.g, menuColor.b, menuColor.a);
     SDL_RenderClear(renderer);
+
+    // Dibujar la imagen de fondo
+    SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);
 
     for (size_t i = 0; i < sizeof(buttons) / sizeof(buttons[0]); i++) {
         SDL_SetRenderDrawColor(renderer, buttons[i].color.r, buttons[i].color.g, buttons[i].color.b, buttons[i].color.a);
@@ -72,6 +100,8 @@ void handleMenu(SDL_Renderer *renderer, GameStateMenu *state) {
         SDL_DestroyTexture(buttons[i].textTexture);
     }
 
+
     TTF_CloseFont(font);
+    SDL_DestroyTexture(backgroundTexture);
 }
 

@@ -9,7 +9,7 @@ bool init_SDL(SDL_Window **window, SDL_Renderer **renderer) {
         return false;
     }
 
-    *window = SDL_CreateWindow("SDL2 Menu and Scenes", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+    *window = SDL_CreateWindow("MY GAME: janieblas", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
     if (!(*window)) {
         fprintf(stderr, "Error: Unable to create window: %s\n", SDL_GetError());
         SDL_Quit();
