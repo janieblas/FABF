@@ -1,15 +1,7 @@
 #include <SDL2/SDL_image.h>
 
 #include "menu.h"
-
-SDL_Texture* loadTexture(const char* filePath, SDL_Renderer* renderer) {
-    SDL_Texture* texture = IMG_LoadTexture(renderer, filePath);
-    if (texture == NULL) {
-        printf("Error loading texture: %s\n", IMG_GetError());
-    }
-    return texture;
-}
-
+#include "texture.h"
 
 // Maneja el estado del menú, dibujando el menú y gestionando la entrada del usuario
 void handleMenu(SDL_Renderer *renderer, GameStateMenu *state) {

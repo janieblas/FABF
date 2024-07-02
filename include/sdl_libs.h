@@ -1,6 +1,5 @@
 #ifndef SDL_LIBS_H
 #define SDL_LIBS_H
-//none
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>

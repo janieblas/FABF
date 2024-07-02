@@ -11,7 +11,8 @@ HEADERS = 	$(INC_DIR)/sdl_libs.h \
 			$(INC_DIR)/start_windows.h \
 			$(INC_DIR)/buttons.h \
 			$(INC_DIR)/handle_scene.h \
-        	$(INC_DIR)/menu.h 
+        	$(INC_DIR)/menu.h \
+        	$(INC_DIR)/texture.h 
 
 # Archivos fuente
 SRC_DIR = src
@@ -20,7 +21,8 @@ SRC = $(SRC_DIR)/main.c \
 	  $(SRC_DIR)/start_windows.c \
 	  $(SRC_DIR)/buttons.c \
 	  $(SRC_DIR)/handle_scene.c \
-      $(SRC_DIR)/menu.c
+      $(SRC_DIR)/menu.c \
+      $(SRC_DIR)/texture.c
 
 # Nombre del ejecutable
 EXE = build/main.exe
