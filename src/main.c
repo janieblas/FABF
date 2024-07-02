@@ -29,10 +29,13 @@ int main() {
                 handleMenu(renderer, &state);
                 break;
             case STATE_PLAY:
-                handleScene(renderer, &state, COLOR_RED);
+                handleGame(renderer, &state);
                 break;
             case STATE_SETTINGS:
                 handleScene(renderer, &state, COLOR_GREEN);
+                break;
+            case STATE_ESC_MENU:
+                handleEscMenu(renderer, &state);
                 break;
             case STATE_EXIT:
                 running = false;

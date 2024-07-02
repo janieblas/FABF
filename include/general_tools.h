@@ -8,10 +8,18 @@ typedef enum {
     STATE_MENU,
     STATE_PLAY,
     STATE_SETTINGS,
+    STATE_ESC_MENU,
     STATE_EXIT
 } GameStateMenu;
 
-
+/*
+typedef enum {
+    STATE_PLAYING,
+    STATE_ESC_MENU,
+    STATE_ESC_SETTING,
+    STATE_ESC_CONT
+}PlayState;
+*/
 typedef enum {
     COLOR_YELLOW,
     COLOR_RED,
@@ -19,6 +27,7 @@ typedef enum {
     COLOR_BLUE,
     COLOR_CYAN
 } ColorType;
+
 
 SDL_Color getColor(ColorType colorType);
 

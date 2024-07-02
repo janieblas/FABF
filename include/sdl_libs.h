@@ -9,6 +9,7 @@
 #include "start_windows.h"
 #include "handle_scene.h"
 #include "menu.h"
-
+#include "esc_menu.h"
+#include "handle_game.h"
 
 #endif //SDL_LIBS_H
